@@ -63,6 +63,8 @@ const ShoesModel = ({ position }) => {
         e.stopPropagation()
         document.getElementById('Shoe.' + e.object.material.name).focus()
       }}
+      scale={1.5}
+      rotation={[0, 0, 0]}
 
     >
       <mesh geometry={nodes.shoe.geometry} material={materials.laces} />

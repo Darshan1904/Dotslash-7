@@ -58,6 +58,7 @@ const ManModel = () => {
       // }}
       scale={2}
 
+
     >
       <mesh
         geometry={nodes['Mesh1_M_455555566666666_Material__2_0'].geometry}

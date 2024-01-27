@@ -5,11 +5,11 @@ import Backdrop from './Backdrop';
 import CameraRig from './CameraRig';
 import Shirt from './SimpleModel';
 
-const CanvasModel = () => {
+const CanvasShirtModel = () => {
   return (
     <Canvas
       shadows
-      camera={{ position: [0, 0, 0], fov: 25 }}
+      camera={{ position: [-1, 0, 5], fov: 25 }}
       gl={{ preserveDrawingBuffer: true }}
       className="w-full max-w-full h-full transition-all ease-in"
     >
@@ -26,4 +26,4 @@ const CanvasModel = () => {
   )
 }
 
-export default CanvasModel
+export { CanvasShirtModel }
