@@ -4,10 +4,13 @@ import { Environment, Center } from '@react-three/drei';
 import Backdrop from './Backdrop';
 import CameraRig from './CameraRig';
 import Shirt from './SimpleModel';
+import { useRef } from 'react';
 
 const CanvasShirtModel = () => {
+  const canvasRef = useRef()
   return (
     <Canvas
+      ref={canvasRef}
       shadows
       camera={{ position: [-1, 0, 5], fov: 25 }}
       gl={{ preserveDrawingBuffer: true }}

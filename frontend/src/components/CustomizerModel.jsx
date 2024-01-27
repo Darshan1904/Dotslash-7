@@ -6,8 +6,8 @@ import { CanvasChairModel, CanvasShoesModel } from './canvas1'
 
 const CustomizerModel = () => {
   const location = useLocation()
-  let model = location.search;
-  console.log(model);
+  let model = location.search
+  console.log(model)
   if (model == '?tshirt') {
     return <div className='h-screen w-screen'>
       <CanvasShirtModel />
@@ -28,7 +28,9 @@ const CustomizerModel = () => {
   }
   return (
     <div>
-      <p>Hello</p>
+      <p>
+        Hello
+      </p>
     </div>
   )
 }
