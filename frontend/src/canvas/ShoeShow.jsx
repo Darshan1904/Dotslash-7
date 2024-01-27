@@ -7,7 +7,7 @@ import { Color } from 'three'
 import { useSnapshot } from 'valtio';
 
 import state from '../store';
-const ShoesModel = ({ position }) => {
+const ShoeShowModel = ({ position }) => {
   const [hovered, setHovered] = useState(false)
 
   const snap = useSnapshot(state);
@@ -21,36 +21,36 @@ const ShoesModel = ({ position }) => {
   }, [hovered])
 
 
-  useControls('Shoe', () => {
+  // useControls('Shoe', () => {
 
-    // using forEach
-    // const colorPickers = {}
-    // Object.keys(materials).forEach((m) => {
-    //   colorPickers[m] = {
-    //     value: '#' + ((Math.random() * 0xffffff) << 0).toString(16).padStart(6, '0'),
-    //     onChange: (v) => {
-    //       materials[m].color = new Color(v)
-    //     }
-    //   }
-    // })
-    // return colorPickers
+  //   // using forEach
+  //   // const colorPickers = {}
+  //   // Object.keys(materials).forEach((m) => {
+  //   //   colorPickers[m] = {
+  //   //     value: '#' + ((Math.random() * 0xffffff) << 0).toString(16).padStart(6, '0'),
+  //   //     onChange: (v) => {
+  //   //       materials[m].color = new Color(v)
+  //   //     }
+  //   //   }
+  //   // })
+  //   // return colorPickers
 
-    // using reduce
-    return Object.keys(materials).reduce(
-      (acc, m) =>
-        Object.assign(acc, {
-          [m]: {
-            value:
-              '#' +
-              ((Math.random() * 0xffffff) << 0).toString(16).padStart(6, '0'),
-            onChange: (v) => {
-              materials[m].color = new Color(v)
-            },
-          },
-        }),
-      {}
-    )
-  })
+  //   // using reduce
+  //   return Object.keys(materials).reduce(
+  //     (acc, m) =>
+  //       Object.assign(acc, {
+  //         [m]: {
+  //           value:
+  //             '#' +
+  //             ((Math.random() * 0xffffff) << 0).toString(16).padStart(6, '0'),
+  //           onChange: (v) => {
+  //             materials[m].color = new Color(v)
+  //           },
+  //         },
+  //       }),
+  //     {}
+  //   )
+  // })
 
 
   return (
@@ -63,10 +63,12 @@ const ShoesModel = ({ position }) => {
         e.stopPropagation()
         document.getElementById('Shoe.' + e.object.material.name).focus()
       }}
-      scale={1.5}
-      rotation={[0, 0, 0]}
+      scale={.4}
+      position={[0, 1, 0]}
+      rotation={[-6, -40.2, -0.5]}
 
     >
+
       <mesh geometry={nodes.shoe.geometry} material={materials.laces} />
       <mesh geometry={nodes.shoe_1.geometry} material={materials.mesh} >
 
@@ -95,4 +97,4 @@ const ShoesModel = ({ position }) => {
 
 useGLTF.preload('./shoe-draco.glb')
 
-export default ShoesModel;
+export default ShoeShowModel;
