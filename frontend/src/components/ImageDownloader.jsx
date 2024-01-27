@@ -1,6 +1,7 @@
 import React from 'react'
 import CustomButton from './CustomButton';
 import state from '../store';
+import StripeWrapper from './StripeWrapper';
 
 
 
@@ -13,13 +14,7 @@ const ImageDownloader = () => {
     <div className="imageDownloader-container bg-gray-400">
 
       {!dataURL ? <p>Loading...</p> : <img src={dataURL} alt="Customized Product" className='w-full h-full object-cover' />}
-      <CustomButton
-        type="outline"
-        title="Proceed to Pay"
-        handleClick={() => { }}
-
-        customStyles="text-xs text-black"
-      />
+      <StripeWrapper />
     </div>
   )
 }
