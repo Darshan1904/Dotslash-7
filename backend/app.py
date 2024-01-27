@@ -9,6 +9,14 @@ from tensorflow.keras.applications.resnet50 import ResNet50, preprocess_input
 from sklearn.neighbors import NearestNeighbors
 from numpy.linalg import norm
 import base64
+from PIL import Image
+from io import BytesIO
+import stripe
+from dotenv import load_dotenv
+
+load_dotenv()
+ 
+stripe.api_key = os.environ.get("stripeSecretKey")
 
 app = Flask(__name__)
 
@@ -41,15 +49,29 @@ def recommend(features, feature_list):
 @app.route('/recommend', methods=['POST'])
 def recommend_endpoint():
     try:
-        # Receive image from the frontend
-        file = request.files['file']
+        # # Receive image from the frontend
+        # file = request.files['file']
 
-        # Save the file temporarily
-        temp_path = "temp_image.jpg"
-        file.save(temp_path)
+        # # Save the file temporarily
+        # temp_path = "temp_image.jpg"
+        # file.save(temp_path)
+
+        # # Process the image data
+        # img = image.load_img(temp_path, target_size=(224, 224))
+        # img_array = image.img_to_array(img)
+
+
+        base64_image = request.json['image_data']
+
+        # Decode the base64 string to binary data
+        binary_data = base64.b64decode(base64_image)
+
+        # Create a BytesIO object to simulate a file-like object
+        image_file = BytesIO(binary_data)
 
         # Process the image data
-        img = image.load_img(temp_path, target_size=(224, 224))
+        img = Image.open(image_file)
+        img = img.resize((224, 224))  # Resize the image to the desired dimensions
         img_array = image.img_to_array(img)
 
         # Feature extraction
@@ -70,12 +92,25 @@ def recommend_endpoint():
                 "content": img_data
             })
         # Remove the temporary file
-        os.remove(temp_path)
+        # os.remove(temp_path)
 
         return jsonify({"recommended_images": recommended_images})
 
     except Exception as e:
         return jsonify({"error": str(e)})
+    
+@app.route('/api/stripe', methods=['POST'])
+def create_payment_intent():
+    try:
+        payment_intent = stripe.PaymentIntent.create(
+            amount=5000,
+            currency='INR',
+        )
+        print(payment_intent)
+        return jsonify({'clientSecret': payment_intent.client_secret}), 200
+    except Exception as e:
+        print(e)
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
