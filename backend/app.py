@@ -49,7 +49,6 @@ def recommend(features, feature_list):
 @app.route('/recommend', methods=['POST'])
 def recommend_endpoint():
     try:
-        # Receive image from the frontend
         file = request.files['file']
 
         # Save the file temporarily
