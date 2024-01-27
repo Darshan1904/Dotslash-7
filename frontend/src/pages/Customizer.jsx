@@ -142,7 +142,7 @@ const Customizer = () => {
           {...slideAnimation('left')}
         >
           <div className="flex items-center min-h-screen">
-            <div className="editortabs-container tabs bg-slate-500">
+            <div className="editortabs-container tabs">
               {EditorTabs.map((tab) => (
                 <Tab
                   key={tab.name}
@@ -164,7 +164,7 @@ const Customizer = () => {
             <CustomButton
               type="filled"
               title="Go Back"
-              customStyles="w-fit px-4 py-2.5 font-bold text-sm"
+              customStyles="w-fit px-4 py-2.5 font-bold text-sm "
             /></Link>
         </motion.div>
 

@@ -1,7 +1,25 @@
 import React from 'react'
-import { Link, Navigate } from 'react-router-dom'
+import { Link, Navigate, useParams } from 'react-router-dom'
 
 const ProductCard = () => {
+
+    let {id} = useParams();
+    id = parseInt(id);
+
+    const products = [
+        { category: 'shoes', name: 'The Catalyzer', price: '$16.00', imageUrl: 'https://source.unsplash.com/420x260/?shoes' },
+        { category: 'shoes', name: 'Shooting Stars', price: '$21.15', imageUrl: 'https://source.unsplash.com/421x261/?shoes' },
+        { category: 'shoes', name: 'Neptune', price: '$12.00', imageUrl: 'https://source.unsplash.com/422x262/?shoes' },
+        { category: 'shoes', name: 'The 400 Blows', price: '$18.40', imageUrl: 'https://source.unsplash.com/423x263/?shoes' },
+        { category: 'tshirt', name: 'The Catalyzer', price: '$16.00', imageUrl: 'https://source.unsplash.com/424x264/?t-shirt' },
+        { category: 'tshirt', name: 'Shooting Stars', price: '$21.15', imageUrl: 'https://source.unsplash.com/425x265/?t-shirt' },
+        { category: 'tshirt', name: 'Neptune', price: '$12.00', imageUrl: 'https://source.unsplash.com/427x267/?t-shirt' },
+        { category: 'tshirt', name: 'The 400 Blows', price: '$18.40', imageUrl: 'https://source.unsplash.com/428x268/?t-shirt' },
+        { category: 'chair', name: 'The Catalyzer', price: '$16.00', imageUrl: 'https://source.unsplash.com/429x269/?chair' },
+        { category: 'chair', name: 'Shooting Stars', price: '$21.15', imageUrl: 'https://source.unsplash.com/430x270/?chair' },
+        { category: 'chair', name: 'Neptune', price: '$12.00', imageUrl: 'https://source.unsplash.com/431x271/?chair' },
+        { category: 'chair', name: 'The 400 Blows', price: '$18.40', imageUrl: 'https://source.unsplash.com/432x272/?chair' },
+      ];
     return (
         <section class="overflow-hidden bg-white py-11 font-poppins dark:bg-gray-800">
             <div class="max-w-6xl px-4 py-4 mx-auto lg:py-8 md:px-6">
@@ -9,47 +27,17 @@ const ProductCard = () => {
                     <div class="w-full px-4 md:w-1/2 ">
                         <div class="sticky top-0 z-50 overflow-hidden ">
                             <div class="relative mb-6 lg:mb-10 lg:h-2/4 ">
-                                <img src="https://i.postimg.cc/PqYpFTfy/pexels-melvin-buezo-2529148.jpg" alt=""
-                                    class="object-cover w-full lg:h-full " />
-                            </div>
-                            <div class="flex-wrap hidden md:flex ">
-                                <div class="w-1/2 p-2 sm:w-1/4">
-                                    <a href="/"
-                                        class="block border border-blue-300 dark:border-transparent dark:hover:border-blue-300 hover:border-blue-300">
-                                        <img src="https://i.postimg.cc/PqYpFTfy/pexels-melvin-buezo-2529148.jpg" alt=""
-                                            class="object-cover w-full lg:h-20" />
-                                    </a>
-                                </div>
-                                <div class="w-1/2 p-2 sm:w-1/4">
-                                    <a href="/"
-                                        class="block border border-transparent dark:border-transparent dark:hover:border-blue-300 hover:border-blue-300">
-                                        <img src="https://i.postimg.cc/PqYpFTfy/pexels-melvin-buezo-2529148.jpg" alt=""
-                                            class="object-cover w-full lg:h-20" />
-                                    </a>
-                                </div>
-                                <div class="w-1/2 p-2 sm:w-1/4">
-                                    <a href="/"
-                                        class="block border border-transparent dark:border-transparent dark:hover:border-blue-300 hover:border-blue-300">
-                                        <img src="https://i.postimg.cc/PqYpFTfy/pexels-melvin-buezo-2529148.jpg" alt=""
-                                            class="object-cover w-full lg:h-20" />
-                                    </a>
-                                </div>
-                                <div class="w-1/2 p-2 sm:w-1/4">
-                                    <a href="/"
-                                        class="block border border-transparent dark:border-transparent dark:hover:border-blue-300 hover:border-blue-300">
-                                        <img src="https://i.postimg.cc/PqYpFTfy/pexels-melvin-buezo-2529148.jpg" alt=""
-                                            class="object-cover w-full lg:h-20" />
-                                    </a>
-                                </div>
+                                <img src={products[id].imageUrl} alt=""
+                                    class="object-cover w-full lg:h-full rounded-lg " />
                             </div>
                         </div>
                     </div>
                     <div class="w-full px-4 md:w-1/2 ">
                         <div class="lg:pl-20">
                             <div class="mb-8 ">
-                                <span class="text-lg font-medium text-rose-500 dark:text-rose-200">New</span>
+                                <span class="text-lg font-medium text-rose-500 dark:text-rose-200">{products[id].category}</span>
                                 <h2 class="max-w-xl mt-2 mb-6 text-2xl font-bold dark:text-gray-400 md:text-4xl">
-                                    Shoes</h2>
+                                    {products[id].name}</h2>
                                 <div class="flex items-center mb-6">
                                     <ul class="flex mr-2">
                                         <li>
@@ -97,54 +85,11 @@ const ProductCard = () => {
                                             </a>
                                         </li>
                                     </ul>
-                                    <p class="text-xs dark:text-gray-400 ">(2 customer reviews)</p>
                                 </div>
-                                <p class="max-w-md mb-8 text-gray-700 dark:text-gray-400">
-                                    Lorem ispum dor amet Lorem ispum dor amet Lorem ispum dor amet Lorem ispum dor amet
-                                    Lorem ispum dor amet Lorem ispum dor amet Lorem ispum dor amet Lorem ispum dor amet
-                                </p>
                                 <p class="inline-block mb-8 text-4xl font-bold text-gray-700 dark:text-gray-400 ">
-                                    <span>$1000.99</span>
-                                    <span
-                                        class="text-base font-normal text-gray-500 line-through dark:text-gray-400">$1500.99</span>
+                                    <span>{products[id].price}</span>
                                 </p>
                                 <p class="text-green-600 dark:text-green-300 ">7 in stock</p>
-                            </div>
-                            <div class="flex items-center mb-8">
-                                <h2 class="w-16 mr-6 text-xl font-bold dark:text-gray-400">
-                                    Colors:</h2>
-                                <div class="flex flex-wrap -mx-2 -mb-2">
-                                    <button
-                                        class="p-1 mb-2 mr-2 border border-transparent hover:border-blue-400 dark:border-gray-800 dark:hover:border-gray-400 ">
-                                        <div class="w-6 h-6 bg-cyan-300"></div>
-                                    </button>
-                                    <button
-                                        class="p-1 mb-2 mr-2 border border-transparent hover:border-blue-400 dark:border-gray-800 dark:hover:border-gray-400">
-                                        <div class="w-6 h-6 bg-green-300 "></div>
-                                    </button>
-                                    <button
-                                        class="p-1 mb-2 border border-transparent hover:border-blue-400 dark:border-gray-800 dark:hover:border-gray-400">
-                                        <div class="w-6 h-6 bg-red-200 "></div>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="flex items-center mb-8">
-                                <h2 class="w-16 text-xl font-bold dark:text-gray-400">
-                                    Size:</h2>
-                                <div class="flex flex-wrap -mx-2 -mb-2">
-                                    <button
-                                        class="py-1 mb-2 mr-1 border w-11 hover:border-blue-400 dark:border-gray-400 hover:text-blue-600 dark:hover:border-gray-300 dark:text-gray-400">XL
-                                    </button>
-                                    <button
-                                        class="py-1 mb-2 mr-1 border w-11 hover:border-blue-400 hover:text-blue-600 dark:border-gray-400 dark:hover:border-gray-300 dark:text-gray-400">S
-                                    </button>
-                                    <button
-                                        class="py-1 mb-2 mr-1 border w-11 hover:border-blue-400 hover:text-blue-600 dark:border-gray-400 dark:hover:border-gray-300 dark:text-gray-400">M
-                                    </button>
-                                    <button
-                                        class="py-1 mb-2 mr-1 border w-11 hover:border-blue-400 hover:text-blue-600 dark:border-gray-400 dark:hover:border-gray-300 dark:text-gray-400">XS
-                                    </button>
-                                </div>
                             </div>
                             <div class="w-32 mb-8 ">
                                 <label for=""
@@ -171,7 +116,7 @@ const ProductCard = () => {
                                     </button>
                                 </div>
                                 <div class="w-full px-4 mb-4 lg:mb-0 lg:w-1/2">
-                                    <Link to={'/customizer?tshirt'}
+                                    <Link to={`/customizer?${products[id].category}`}
                                         class="flex items-center justify-center w-full p-4 text-blue-500 border border-blue-500 rounded-md dark:text-gray-200 dark:border-blue-600 hover:bg-blue-600 hover:border-blue-600 hover:text-gray-100 dark:bg-blue-600 dark:hover:bg-blue-700 dark:hover:border-blue-700 dark:hover:text-gray-300"
                                     >
                                         Let's Customize
