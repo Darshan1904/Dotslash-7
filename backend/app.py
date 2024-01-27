@@ -92,7 +92,7 @@ def recommend_endpoint():
                 "content": img_data
             })
         # Remove the temporary file
-        # os.remove(temp_path)
+        os.remove(temp_path)
 
         return jsonify({"recommended_images": recommended_images})
 
