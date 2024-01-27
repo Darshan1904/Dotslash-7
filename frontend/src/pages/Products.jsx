@@ -26,7 +26,7 @@ const Products = ({ title }) => {
 
   return (
     <section className="text-gray-600 body-font" id='products'>
-      <div className="container px-5 py-24 mx-auto">
+      <div className="container px-5 pt-24 -mt-10 mx-auto">
         <h1 className='text-4xl font-bold mb-6 text-center underline underline-offset-4'>{title}</h1>
         {Object.keys(groupedProducts).map((category, index) => (
           <div key={index} className="flex flex-wrap -m-4">

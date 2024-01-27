@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import ProductCard from "./pages/ProductCard";
 import Products from "./pages/Products";
 import CustomizerModel from './components/CustomizerModel'
+import Footer from './components/Footer/Footer';
 function App() {
 
     return (
@@ -16,9 +17,8 @@ function App() {
                         <Home />
                         <CanvasModel2 />
                         <Galary />
-                        <Products title={"New Products"} />
-                        <Products title={"Top Products"} />
-                        <Products title={"Featured"} />
+                        <Products title={"Products"} />
+                        <Footer />
                     </>} />
                     <Route path="/customizer" element={<CustomizerModel />} />
                     <Route path="/product/:id" element={<ProductCard />} />
