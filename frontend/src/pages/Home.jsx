@@ -34,12 +34,12 @@ const Home = () => {
             <strong className='text-xl'>Discover. Personalize. Elevate.</strong>
 
 
-            <Link className=" flex-1 rounded-md w-fit px-4 py-2.5 font-bold text-sm" style={{
+            <a className=" flex-1 rounded-md w-fit px-4 py-2.5 font-bold text-sm" style={{
               backgroundColor
                 : snap.color
-            }} to="/customizer">
+            }} href="#products">
               Explore Now
-            </Link>
+            </a>
           </motion.div>
         </motion.div>
 

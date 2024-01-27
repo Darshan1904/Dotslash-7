@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Products = () => {
+const Products = ({ title }) => {
   // Create an array of products with dummy data
   const products = [
     { category: 'Shoes', name: 'The Catalyzer', price: '$16.00', imageUrl: 'https://source.unsplash.com/420x260/?shoes' },
@@ -25,8 +25,9 @@ const Products = () => {
   }, {});
 
   return (
-    <section className="text-gray-600 body-font">
+    <section className="text-gray-600 body-font" id='products'>
       <div className="container px-5 py-24 mx-auto">
+        <h1 className='text-4xl font-bold mb-6 text-center underline underline-offset-4'>{title}</h1>
         {Object.keys(groupedProducts).map((category, index) => (
           <div key={index} className="flex flex-wrap -m-4">
             {groupedProducts[category].map((product, i) => (

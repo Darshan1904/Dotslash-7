@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import React, { useState } from 'react';
 import { useSnapshot } from 'valtio';
 
-import config from '../config/config';
-import state from '../store';
-import { download } from '../assets';
-import { downloadCanvasToImage, reader } from '../config/helpers';
-import { EditorTabs, FilterTabs, DecalTypes } from '../config/constants';
-import { fadeAnimation, slideAnimation } from '../config/motion';
-import { AIPicker, ColorPicker, CustomButton, FilePicker, Tab } from '../components';
 import { Link } from 'react-router-dom';
+import { AIPicker, ColorPicker, CustomButton, FilePicker, Tab } from '../components';
+import { DecalTypes, EditorTabs, FilterTabs } from '../config/constants';
+import { reader } from '../config/helpers';
+import { fadeAnimation, slideAnimation } from '../config/motion';
+import state from '../store';
+import axios from 'axios'
 
 const Customizer = () => {
   const snap = useSnapshot(state);
@@ -54,19 +53,32 @@ const Customizer = () => {
     try {
       setGeneratingImg(true);
 
-      const response = await fetch('http://localhost:8080/api/v1/dalle', {
+      // const response = await fetch('https://chatgpt-42.p.rapidapi.com/texttoimage', {
+      //   method: 'POST',
+      //   headers: {
+      //     'content-type': 'application/json',
+      //     'X-RapidAPI-Key': '53288c652dmsh989ed3cf5c17917p1a6525jsn8b57c0700f3c',
+      //     'X-RapidAPI-Host': 'chatgpt-42.p.rapidapi.com'
+      //   },
+      //   data: JSON.stringify({
+      //     prompt,
+      //   })
+      // })
+      const options = {
         method: 'POST',
+        url: 'https://chatgpt-42.p.rapidapi.com/texttoimage',
         headers: {
-          'Content-Type': 'application/json'
+          'content-type': 'application/json',
+          'X-RapidAPI-Key': '53288c652dmsh989ed3cf5c17917p1a6525jsn8b57c0700f3c',
+          'X-RapidAPI-Host': 'chatgpt-42.p.rapidapi.com'
         },
-        body: JSON.stringify({
-          prompt,
-        })
-      })
+        data: { text: prompt }
+      };
+      const response = await axios.request(options);
 
-      const data = await response.json();
-
-      handleDecals(type, `data:image/png;base64,${data.photo}`)
+      const photo = response.data.generated_image;
+      console.log(photo)
+      handleDecals(type, `${photo}`)
     } catch (error) {
       alert(error)
     } finally {
@@ -79,7 +91,7 @@ const Customizer = () => {
     const decalType = DecalTypes[type];
 
     state[decalType.stateProperty] = result;
-
+    console.log(state)
     if (!activeFilterTab[decalType.filterTab]) {
       handleActiveFilterTab(decalType.filterTab)
     }
@@ -126,7 +138,7 @@ const Customizer = () => {
           {...slideAnimation('left')}
         >
           <div className="flex items-center min-h-screen">
-            <div className="editortabs-container tabs">
+            <div className="editortabs-container tabs bg-slate-500">
               {EditorTabs.map((tab) => (
                 <Tab
                   key={tab.name}

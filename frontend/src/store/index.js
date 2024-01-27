@@ -5,7 +5,7 @@ const state = proxy({
     logoX: 0.03,
     logoY: 0.05,
     logoSize: 0.15,
-    color: "#EFBD48",
+    color: "#F03612",
     isLogoTexture: true,
     isFullTexture: false,
     logoDecal: "./nexus.png",

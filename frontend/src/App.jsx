@@ -8,7 +8,7 @@ import CustomizerModel from './components/CustomizerModel'
 function App() {
 
     return (
-        <main className='app transition-all ease-in'>
+        <main className='app transition-all ease-in scroll-smooth'>
 
             <BrowserRouter>
                 <Routes>
@@ -16,7 +16,9 @@ function App() {
                         <Home />
                         <CanvasModel2 />
                         <Galary />
-                        <Products />
+                        <Products title={"New Products"} />
+                        <Products title={"Top Products"} />
+                        <Products title={"Featured"} />
                     </>} />
                     <Route path="/customizer" element={<CustomizerModel />} />
                     <Route path="/product/:id" element={<ProductCard />} />
@@ -24,6 +26,9 @@ function App() {
 
                 </Routes>
             </BrowserRouter>
+            <footer>
+
+            </footer>
         </main>
     );
 }

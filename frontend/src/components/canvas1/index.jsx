@@ -50,7 +50,6 @@ const CanvasModel2 = () => {
 
       <CameraRig>
         <Backdrop />
-
         <Center>
           <ShoeShowModel />
         </Center>
