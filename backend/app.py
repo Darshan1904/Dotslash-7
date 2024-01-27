@@ -2,11 +2,13 @@ from flask import Flask, request, jsonify
 import os
 import numpy as np
 import pickle
+import tensorflow
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.layers import GlobalMaxPooling2D
 from tensorflow.keras.applications.resnet50 import ResNet50, preprocess_input
 from sklearn.neighbors import NearestNeighbors
 from numpy.linalg import norm
+import base64
 
 app = Flask(__name__)
 
@@ -41,7 +43,13 @@ def recommend_endpoint():
     try:
         # Receive image from the frontend
         file = request.files['file']
-        img = image.load_img(file, target_size=(224, 224))
+
+        # Save the file temporarily
+        temp_path = "temp_image.jpg"
+        file.save(temp_path)
+
+        # Process the image data
+        img = image.load_img(temp_path, target_size=(224, 224))
         img_array = image.img_to_array(img)
 
         # Feature extraction
@@ -51,8 +59,21 @@ def recommend_endpoint():
         indices = recommend(features, feature_list)
 
         # Return recommended image paths in JSON format
-        recommended_images = [filenames[idx] for idx in indices[0]]
+        recommended_images = []
+        for idx in indices[0]:
+            image_path = filenames[idx]
+            with open(image_path, "rb") as img_file:
+                img_data = base64.b64encode(img_file.read()).decode('utf-8')
+
+            recommended_images.append({
+                "filename": os.path.basename(image_path),
+                "content": img_data
+            })
+        # Remove the temporary file
+        os.remove(temp_path)
+
         return jsonify({"recommended_images": recommended_images})
+
     except Exception as e:
         return jsonify({"error": str(e)})
 
