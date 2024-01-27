@@ -4,6 +4,7 @@ import { useSnapshot } from 'valtio'
 import state from '../store'
 import { CustomButton } from '../components'
 import { headContainerAnimation, headContentAnimation, headTextAnimation, slideAnimation } from '../config/motion'
+import Galary from './Galary'
 
 const Home = () => {
   const snap = useSnapshot(state)
