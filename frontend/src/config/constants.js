@@ -1,8 +1,12 @@
-import { move, fileIcon, ai, logoShirt, stylishShirt } from "../assets";
-// {
-//   name: "colorpicker",
-//   icon: swatch,
-// },
+import {
+    move,
+    fileIcon,
+    ai,
+    logoShirt,
+    stylishShirt,
+    download,
+} from "../assets";
+
 export const EditorTabs = [
     {
         name: "colorpicker",
@@ -15,6 +19,10 @@ export const EditorTabs = [
     {
         name: "aipicker",
         icon: ai,
+    },
+    {
+        name: "download",
+        icon: download,
     },
 ];
 
