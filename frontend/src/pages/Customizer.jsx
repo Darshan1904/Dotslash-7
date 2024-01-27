@@ -118,7 +118,6 @@ const Customizer = () => {
 
   return (
     <AnimatePresence>
-      {!snap.intro && (
         <>
           <motion.div
             key="custom"
@@ -167,7 +166,6 @@ const Customizer = () => {
             ))}
           </motion.div>
         </>
-      )}
     </AnimatePresence>
   )
 }
