@@ -11,27 +11,20 @@ function App() {
     const loc = window.location.pathname;
     return (
         <main className='app transition-all ease-in'>
-            {/* <Home />
-            <Canvas loc={loc} />
-            <CanvasModel />
-            <Customizer />
-            <Galary />
-            <Products />
-            <ProductCard /> */}
             <BrowserRouter>
-      <Routes>
-        <Route path="/" exact element={<>
-            <Home />
-            <Galary />
-            <Products />
-        </>} />
-        <Route path="/customizer" element={<>
-            <CanvasModel />
-            <Customizer />    
-        </>} />
-        <Route path="/product-card/:id" element={<ProductCard />} />
-      </Routes>
-    </BrowserRouter>
+                <Routes>
+                    <Route path="/" exact element={<>
+                        <Home />
+                        <Galary />
+                        <Products />
+                    </>} />
+                    <Route path="/customizer" element={<>
+                        <CanvasModel />
+                        <Customizer />    
+                    </>} />
+                    <Route path="/product-card/:id" element={<ProductCard />} />
+                </Routes>
+            </BrowserRouter>
         </main>
     );
 }

@@ -22,7 +22,7 @@ const Customizer = () => {
   const [activeFilterTab, setActiveFilterTab] = useState({
     logoShirt: true,
     stylishShirt: false,
-  })
+  });
 
   // show tab content depending on the activeTab
   const generateTabContent = () => {
