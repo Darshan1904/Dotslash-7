@@ -49,30 +49,31 @@ def recommend(features, feature_list):
 @app.route('/recommend', methods=['POST'])
 def recommend_endpoint():
     try:
-        # # Receive image from the frontend
-        # file = request.files['file']
+        # Receive image from the frontend
+        file = request.files['file']
 
-        # # Save the file temporarily
-        # temp_path = "temp_image.jpg"
-        # file.save(temp_path)
-
-        # # Process the image data
-        # img = image.load_img(temp_path, target_size=(224, 224))
-        # img_array = image.img_to_array(img)
-
-
-        base64_image = request.json['image_data']
-
-        # Decode the base64 string to binary data
-        binary_data = base64.b64decode(base64_image)
-
-        # Create a BytesIO object to simulate a file-like object
-        image_file = BytesIO(binary_data)
+        # Save the file temporarily
+        temp_path = "temp_image.jpg"
+        file.save(temp_path)
 
         # Process the image data
-        img = Image.open(image_file)
-        img = img.resize((224, 224))  # Resize the image to the desired dimensions
+        img = image.load_img(temp_path, target_size=(224, 224))
         img_array = image.img_to_array(img)
+
+
+        # base64_image = request.json['image_data']
+        # base64_image.strip()
+        # print(len(base64_image))
+        # # Decode the base64 string to binary data
+        # binary_data = base64.urlsafe_b64decode(base64_image)
+        # print(binary_data)
+        # # Create a BytesIO object to simulate a file-like object
+        # image_file = BytesIO(binary_data)
+
+        # # Process the image data
+        # img = Image.open(image_file)
+        # img = img.resize((224, 224))  # Resize the image to the desired dimensions
+        # img_array = image.img_to_array(img)
 
         # Feature extraction
         features = feature_extraction(img_array)
