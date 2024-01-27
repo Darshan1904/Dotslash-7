@@ -1,28 +1,27 @@
-import { Center, Environment, OrbitControls, ContactShadows } from '@react-three/drei';
-import { Canvas } from '@react-three/fiber';
+import { Canvas } from '@react-three/fiber'
+import { Environment, Center } from '@react-three/drei';
 
 import Backdrop from './Backdrop';
 import CameraRig from './CameraRig';
-import ShoesModel from './ShoesModel';
-import ShirtModel from './ShirtModel';
+import Shirt from './SimpleModel';
 
 const CanvasModel = () => {
   return (
     <Canvas
-      shadows camera={{ position: [2, 0, 5] }}
+      shadows
+      camera={{ position: [0, 0, 0], fov: 25 }}
+      gl={{ preserveDrawingBuffer: true }}
+      className="w-full max-w-full h-full transition-all ease-in"
     >
-
-      <Environment preset="forest" />
+      <ambientLight intensity={0.5} />
+      <Environment preset="city" />
 
       <CameraRig>
-        <ContactShadows position={[0, -.9, 0]} color="#ffffff" />
-        {/* <OrbitControls autoRotate /> */}
+        <Backdrop />
         <Center>
-          <ShoesModel />
-          {/* <ShirtModel /> */}
+          <Shirt />
         </Center>
       </CameraRig>
-
     </Canvas>
   )
 }

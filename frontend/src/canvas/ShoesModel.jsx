@@ -7,8 +7,9 @@ import { Color } from 'three'
 import { useSnapshot } from 'valtio';
 
 import state from '../store';
-const ShoesModel = () => {
+const ShoesModel = ({ position }) => {
   const [hovered, setHovered] = useState(false)
+
   const snap = useSnapshot(state);
 
   const logoTexture = useTexture(snap.logoDecal);
@@ -20,40 +21,41 @@ const ShoesModel = () => {
   }, [hovered])
 
 
-  // useControls('Shoe', () => {
+  useControls('Shoe', () => {
 
-  //   // using forEach
-  //   // const colorPickers = {}
-  //   // Object.keys(materials).forEach((m) => {
-  //   //   colorPickers[m] = {
-  //   //     value: '#' + ((Math.random() * 0xffffff) << 0).toString(16).padStart(6, '0'),
-  //   //     onChange: (v) => {
-  //   //       materials[m].color = new Color(v)
-  //   //     }
-  //   //   }
-  //   // })
-  //   // return colorPickers
+    // using forEach
+    // const colorPickers = {}
+    // Object.keys(materials).forEach((m) => {
+    //   colorPickers[m] = {
+    //     value: '#' + ((Math.random() * 0xffffff) << 0).toString(16).padStart(6, '0'),
+    //     onChange: (v) => {
+    //       materials[m].color = new Color(v)
+    //     }
+    //   }
+    // })
+    // return colorPickers
 
-  //   // using reduce
-  //   return Object.keys(materials).reduce(
-  //     (acc, m) =>
-  //       Object.assign(acc, {
-  //         [m]: {
-  //           value:
-  //             '#' +
-  //             ((Math.random() * 0xffffff) << 0).toString(16).padStart(6, '0'),
-  //           onChange: (v) => {
-  //             materials[m].color = new Color(v)
-  //           },
-  //         },
-  //       }),
-  //     {}
-  //   )
-  // })
+    // using reduce
+    return Object.keys(materials).reduce(
+      (acc, m) =>
+        Object.assign(acc, {
+          [m]: {
+            value:
+              '#' +
+              ((Math.random() * 0xffffff) << 0).toString(16).padStart(6, '0'),
+            onChange: (v) => {
+              materials[m].color = new Color(v)
+            },
+          },
+        }),
+      {}
+    )
+  })
 
 
   return (
     <group
+      key={position}
       dispose={null}
       onPointerOver={() => setHovered(true)}
       onPointerOut={() => setHovered(false)}
@@ -61,29 +63,30 @@ const ShoesModel = () => {
         e.stopPropagation()
         document.getElementById('Shoe.' + e.object.material.name).focus()
       }}
+
     >
       <mesh geometry={nodes.shoe.geometry} material={materials.laces} />
       <mesh geometry={nodes.shoe_1.geometry} material={materials.mesh} >
-        <Decal
-          position={[0, 0, 0]}
-          rotation={[0, 0, 0]}
-          scale={1}
-          map={logoTexture}
-        />
+
       </mesh>
       <mesh geometry={nodes.shoe_2.geometry} material={materials.caps} >
-        <Decal
-          position={[0, 0, 0]}
-          rotation={[0, 0, 0]}
-          scale={1}
-          map={logoTexture}
-        />
+
       </mesh>
-      <mesh geometry={nodes.shoe_3.geometry} material={materials.inner} />
-      <mesh geometry={nodes.shoe_4.geometry} material={materials.sole} />
-      <mesh geometry={nodes.shoe_5.geometry} material={materials.stripes} />
-      <mesh geometry={nodes.shoe_6.geometry} material={materials.band} />
-      <mesh geometry={nodes.shoe_7.geometry} material={materials.patch} />
+      <mesh geometry={nodes.shoe_3.geometry} material={materials.inner} >
+
+      </mesh>
+      <mesh geometry={nodes.shoe_4.geometry} material={materials.sole} >
+
+      </mesh>
+      <mesh geometry={nodes.shoe_5.geometry} material={materials.stripes} >
+
+      </mesh>
+      <mesh geometry={nodes.shoe_6.geometry} material={materials.band} >
+
+      </mesh>
+      <mesh geometry={nodes.shoe_7.geometry} material={materials.patch} >
+
+      </mesh>
     </group>
   )
 }

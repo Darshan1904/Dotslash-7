@@ -4,16 +4,17 @@ import { useControls } from 'leva'
 import { Color } from 'three'
 
 import { useSnapshot } from 'valtio'
-
 import state from '../store'
+
+// import state from '../store'
 const ShirtModel = () => {
   const [hovered, setHovered] = useState(false)
   const snap = useSnapshot(state)
 
   const logoTexture = useTexture(snap.logoDecal)
 
-  const { nodes, materials } = useGLTF('/tshirt.glb')
-
+  const { nodes, materials } = useGLTF('/tshirt_male.glb')
+  console.log(nodes, materials)
   useEffect(() => {
     document.body.style.cursor = hovered ? 'pointer' : 'auto'
   }, [hovered])
@@ -47,20 +48,20 @@ const ShirtModel = () => {
     )
   })
 
-  const materialsObject = {
-    'base_female_Material296840_0': 'Material296840',
-    'base_female_Material296846_0': 'Material296846',
-    'base_female_Material296853_0': 'Material296853',
-    'base_female_Material296859_0': 'Material296859',
-    'base_female_Material296863_0': 'Material296863',
-    'base_female_Material296867_0': 'Material296867',
-    'base_female_Material296872_0': 'Material296872',
-    'base_female_Material296878_0': 'Material296878',
-    'full_sleeves_tshirt_fbx_Body_FRONT_6188_0': 'Body_FRONT_6188',
-    'full_sleeves_tshirt_fbx_Material1572122_0': 'Material1572122',
-    'full_sleeves_tshirt_fbx_Material1632748_0': 'Material1632748',
-    'full_sleeves_tshirt_fbx_Sleeves_FRONT_6183_0': 'Sleeves_FRONT_6183'
-  }
+  // const materialsObject = {
+  //   'base_female_Material296840_0': 'Material296840',
+  //   'base_female_Material296846_0': 'Material296846',
+  //   'base_female_Material296853_0': 'Material296853',
+  //   'base_female_Material296859_0': 'Material296859',
+  //   'base_female_Material296863_0': 'Material296863',
+  //   'base_female_Material296867_0': 'Material296867',
+  //   'base_female_Material296872_0': 'Material296872',
+  //   'base_female_Material296878_0': 'Material296878',
+  //   'full_sleeves_tshirt_fbx_Body_FRONT_6188_0': 'Body_FRONT_6188',
+  //   'full_sleeves_tshirt_fbx_Material1572122_0': 'Material1572122',
+  //   'full_sleeves_tshirt_fbx_Material1632748_0': 'Material1632748',
+  //   'full_sleeves_tshirt_fbx_Sleeves_FRONT_6183_0': 'Sleeves_FRONT_6183'
+  // }
   return (
     <group
       dispose={null}
@@ -70,7 +71,10 @@ const ShirtModel = () => {
       onClick={(e) => {
         e.stopPropagation()
         document.getElementById('Shoe.' + e.object.material.name).focus()
-      }}>
+      }}
+
+      position={[0, 2, 2]}
+    >
       {/* <mesh geometry={nodes.shoe.geometry} material={materials.laces} />
                               <mesh geometry={nodes.shoe_1.geometry} material={materials.mesh} >
                                 <Decal
@@ -97,16 +101,26 @@ const ShirtModel = () => {
       {/* <mesh geometry={nodes.base_female_Material296846_0.geometry} material={materials.Material296840
                               } /> */}
       {
-        Object.entries(materialsObject).map(([key, value]) => <mesh
-          geometry={nodes[key].geometry}  // Assuming you have a 'nodes' object with mesh geometries
-          material={materials[value]}   // Assuming you have a 'materials' object with material references
-        />
-        )
+        // Object.entries(materialsObject).map(([key, value]) => <mesh
+        //   geometry={nodes[key].geometry}  // Assuming you have a 'nodes' object with mesh geometries
+        //   material={materials[value]}   // Assuming you have a 'materials' object with material references
+        // />
+        // )
       }
+      <mesh
+        geometry={nodes["Object_2"].geometry}  // Assuming you have a 'nodes' object with mesh geometries
+        material={materials["Shirt"]}   // Assuming you have a 'materials' object with material references
+      >
+
+      </mesh>
+      <mesh
+        geometry={nodes["Object_3"].geometry}  // Assuming you have a 'nodes' object with mesh geometries
+        material={materials["Shirt"]}   // Assuming you have a 'materials' object with material references
+      />
     </group >
   )
 }
 
-useGLTF.preload('./tshirt.glb')
+useGLTF.preload('./tshirt_male.glb')
 
 export default ShirtModel
