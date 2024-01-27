@@ -9,6 +9,7 @@ import { reader } from '../config/helpers';
 import { fadeAnimation, slideAnimation } from '../config/motion';
 import state from '../store';
 import axios from 'axios'
+import ImageDownloader from '../components/ImageDownloader';
 
 const Customizer = () => {
   const snap = useSnapshot(state);
@@ -42,6 +43,9 @@ const Customizer = () => {
           generatingImg={generatingImg}
           handleSubmit={handleSubmit}
         />
+      case "download":
+        return <ImageDownloader />
+
       default:
         return null;
     }
