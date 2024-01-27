@@ -9,7 +9,7 @@ const ColorPicker = () => {
 
   return (
     <div className="absolute left-full ml-3">
-      <SketchPicker 
+      <SketchPicker
         color={snap.color}
         disableAlpha
         onChange={(color) => state.color = color.hex}
