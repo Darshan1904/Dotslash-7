@@ -1,8 +1,9 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
-import { CanvasShirtModel } from '../canvas'
+import { CanvasShirtModel, CanvasShoeModel, CanvasChairModel } from '../canvas'
 import Customizer from '../pages/Customizer'
-import { CanvasChairModel, CanvasShoesModel } from './canvas1'
+import { CanvasCaseModel } from './canvas1'
+
 
 const CustomizerModel = () => {
   const location = useLocation()
@@ -22,15 +23,15 @@ const CustomizerModel = () => {
   }
   if (model == '?shoes') {
     return <div className='h-screen w-screen'>
-      <CanvasShoesModel />
+      <CanvasShoeModel />
       <Customizer />
     </div>
   }
+
   return (
-    <div>
-      <p>
-        Hello
-      </p>
+    <div className='h-screen w-screen'>
+      <CanvasCaseModel />
+      <Customizer />
     </div>
   )
 }

@@ -9,6 +9,14 @@ from tensorflow.keras.applications.resnet50 import ResNet50, preprocess_input
 from sklearn.neighbors import NearestNeighbors
 from numpy.linalg import norm
 import base64
+from PIL import Image
+from io import BytesIO
+import stripe
+from dotenv import load_dotenv
+
+load_dotenv()
+ 
+stripe.api_key = os.environ.get("stripeSecretKey")
 
 app = Flask(__name__)
 
@@ -41,7 +49,6 @@ def recommend(features, feature_list):
 @app.route('/recommend', methods=['POST'])
 def recommend_endpoint():
     try:
-        # Receive image from the frontend
         file = request.files['file']
 
         # Save the file temporarily
@@ -51,6 +58,21 @@ def recommend_endpoint():
         # Process the image data
         img = image.load_img(temp_path, target_size=(224, 224))
         img_array = image.img_to_array(img)
+
+
+        # base64_image = request.json['image_data']
+        # base64_image.strip()
+        # print(len(base64_image))
+        # # Decode the base64 string to binary data
+        # binary_data = base64.urlsafe_b64decode(base64_image)
+        # print(binary_data)
+        # # Create a BytesIO object to simulate a file-like object
+        # image_file = BytesIO(binary_data)
+
+        # # Process the image data
+        # img = Image.open(image_file)
+        # img = img.resize((224, 224))  # Resize the image to the desired dimensions
+        # img_array = image.img_to_array(img)
 
         # Feature extraction
         features = feature_extraction(img_array)
@@ -76,6 +98,19 @@ def recommend_endpoint():
 
     except Exception as e:
         return jsonify({"error": str(e)})
+    
+@app.route('/api/stripe', methods=['POST'])
+def create_payment_intent():
+    try:
+        payment_intent = stripe.PaymentIntent.create(
+            amount=5000,
+            currency='INR',
+        )
+        print(payment_intent)
+        return jsonify({'clientSecret': payment_intent.client_secret}), 200
+    except Exception as e:
+        print(e)
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)

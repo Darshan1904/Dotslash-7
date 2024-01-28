@@ -6,6 +6,7 @@ import ProductCard from "./pages/ProductCard";
 import Products from "./pages/Products";
 import CustomizerModel from './components/CustomizerModel'
 import Footer from './components/Footer/Footer';
+
 function App() {
 
     return (
@@ -26,6 +27,7 @@ function App() {
 
                 </Routes>
             </BrowserRouter>
+
             <footer>
 
             </footer>
