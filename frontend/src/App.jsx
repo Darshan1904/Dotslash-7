@@ -29,13 +29,13 @@ function App() {
                     
                     </>} />
                     <Route path='/similar' element={<>
-                    <div>
-                    <h1 className='text-4xl font-bold underline underline-offset-4 text-center mt-10'>People also Viewed</h1>
+                    <div className='h-screen bg-gray-300'>
+                    <h1 className='text-4xl font-bold mb-6 text-center text-[#5098f5]'>People also Viewed</h1>
                     <div className='grid grid-cols-4 gap-2'>
                         {
                             
                             snap?.recommendations?.map(el=><div className="lg:w-1/2 md:w-1/2 p-4 w-full">
-                            <div className="block relative h-48 rounded overflow-hidden">
+                            <div className="block relative h-48 rounded-md overflow-hidden hover:scale-110 transition duration-300">
                               <img alt="ecommerce" className="object-cover object-center w-full h-full block" src={'data:image/png;base64,'+el.content} />
                             </div>
 
