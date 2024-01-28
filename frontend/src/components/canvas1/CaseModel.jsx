@@ -15,13 +15,15 @@ const CaseModel = () => {
   const logoTexture = useTexture(snap.logoDecal)
 
   const { nodes, materials } = useGLTF('/iphone_11_pro_case.glb')
+  const { nodes: n1, materials: m1 } = useGLTF('/apple_logo.glb')
+  const { nodes: n2, materials: m2 } = useGLTF('/mobile_stand_v1.glb')
 
-  console.log(nodes, materials)
+  console.log(n2, m2)
   useEffect(() => {
     document.body.style.cursor = hovered ? 'pointer' : 'auto'
   }, [hovered])
 
-  useControls('Shoe', () => {
+  useControls('Case', () => {
     // using reduce
     return Object.keys(materials).reduce(
       (acc, m) => Object.assign(acc, {
@@ -30,6 +32,22 @@ const CaseModel = () => {
             ((Math.random() * 0xffffff) << 0).toString(16).padStart(6, '0'),
           onChange: (v) => {
             materials[m].color = new Color(v)
+          }
+        }
+      }),
+      {}
+    )
+  })
+
+  useControls('Logo', () => {
+    // using reduce
+    return Object.keys(m1).reduce(
+      (acc, m) => Object.assign(acc, {
+        [m]: {
+          value: '#' +
+            ((Math.random() * 0xffffff) << 0).toString(16).padStart(6, '0'),
+          onChange: (v) => {
+            m1[m].color = new Color(v)
           }
         }
       }),
@@ -68,12 +86,26 @@ const CaseModel = () => {
         />}
 
       </mesh>
+      <mesh
+        geometry={n1['Apple_0'].geometry}
+        material={m1['1976logo']}
+        scale={10}
+        position={[0, 0, -3]}
 
+      />
 
+      <mesh
+        geometry={n2['Object_2'].geometry}
+        material={m2['Scene_-_Root']}
+        scale={1}
+        position={[50, -10, 2]}
+        rotation={[60, 161, 0]}
+      />
     </group >
   )
 }
 
 useGLTF.preload('./iphone_11_pro_case.glb')
+useGLTF.preload('./mobile_stand.glb')
 
 export default CaseModel
