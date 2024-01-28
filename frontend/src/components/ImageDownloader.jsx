@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import CustomButton from './CustomButton';
 import state from '../store';
 import StripeWrapper from './StripeWrapper';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 async function sendImage(base64Data) {
   try {
@@ -13,24 +14,27 @@ async function sendImage(base64Data) {
     formData.append('file', blob, 'image.png');
 
     const response = await axios.post('/recommend', formData);
-    response.data.recommended_images.forEach(img => {
-      let cardElement = document.createElement('div');
-      cardElement.className = 'card-container';
+    state.recommendations=response.data.recommended_images
+    // response.data.recommended_images.forEach(img => {
+    //   let cardContainer = document.createElement('div');
+    //   cardContainer.className = 'card-container grid grid-cols-4 gap-2';
 
-      let imageElement = document.createElement('img');
-      imageElement.src = 'data:image/png;base64,' + img.content;
-      imageElement.className = 'card-image';
+    //   response.data.recommended_images.forEach(img=>{
+    //     let img_url = 'data:image/png;base64,' + img.content;
+    //     cardContainer.innerHTML += `<section className="text-gray-600 body-font" id='products'>
+    //     <div className="container px-5 pt-24 -mt-10 mx-auto">
+    //         <div className="flex flex-wrap -m-4">
+    //             <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
+    //               <div className="block relative h-36 rounded overflow-hidden">
+    //                 <img alt="ecommerce" class="object-cover object-center w-full h-full block" src=${img_url} />
+    //               </div>
+    //         </div>
+    //     </div>
+    //   </section>`
+    //   })
 
-      cardElement.appendChild(imageElement);
-
-      let infoSpan = document.createElement('span');
-      infoSpan.textContent = 'Rs 500';
-      infoSpan.className = 'card-info';
-
-      cardElement.appendChild(infoSpan);
-
-      document.body.appendChild(cardElement);
-    });
+    //   document.body.appendChild(cardContainer);
+    // });
   } catch (error) {
     console.error(error);
   }
@@ -41,7 +45,9 @@ const ImageDownloader = () => {
   let dataURL = canvas.toDataURL('image/png');
   state.customizedModelImage = dataURL;
 
-  sendImage(dataURL);
+  useEffect(()=>{
+    sendImage(dataURL);
+  }, [dataURL]);
 
   return (
     <div className="imageDownloader-container bg-gray-400">

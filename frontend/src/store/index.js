@@ -11,6 +11,7 @@ const state = proxy({
     logoDecal: "./nexus.png",
     fullDecal: "./diffuseStreet.jpg",
     customizedModelImage: "",
+    recommendations:[]
 });
 
 export default state;
