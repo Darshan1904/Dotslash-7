@@ -19,7 +19,7 @@ async function sendImage(base64Data) {
     formData.append('file', blob, 'image.png');
 
     const response = await axios.post('/recommend', formData);
-    response.data.recommended_images.forEach(img=>{
+    response.data.recommended_images.forEach(img => {
       let imageElement = document.createElement('img');
       // Set the source of the image to the base64 string
       imageElement.src = 'data:image/png;base64,' + img.content;

@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html data-n-head-ssr lang="en" data-n-head="%7B%22lang%22:%7B%22ssr%22:%22en%22%7D%7D">
+
+<head>
+  <title>Design the next iPhone</title>
+
+  <link data-n-head="ssr" rel="canonical" href="https://neal.fun/design-the-next-iphone/" />
+  <link data-n-head="ssr" rel="icon" type="image/png" href="https://neal.fun/favicons/design-the-next-iphone.png" />
+  <link rel="style" href="./test.css" />
+
+
+
+  <link rel="preload" href="https://neal.fun/_nuxt/ab85a93.js" as="script" />
+  <link rel="preload" href="https://neal.fun/_nuxt/10f3e93.js" as="script" />
+  <link rel="preload" href="https://neal.fun/_nuxt/88b447a.js" as="script" />
+  <link rel="preload" href="https://neal.fun/_nuxt/24fe730.js" as="script" />
+  <link rel="preload" href="https://neal.fun/_nuxt/80bc178.js" as="script" />
+  <link rel="preload" href="https://neal.fun/_nuxt/9a35012.js" as="script" />
+  <link rel="preload" href="https://neal.fun/_nuxt/0f531ad.js" as="script" />
+  <link rel="preload" href="https://neal.fun/_nuxt/a03b5c5.js" as="script" />
+  <link rel="preload" href="https://neal.fun/_nuxt/fd5ddfa.js" as="script" />
+  <link rel="preload" href="https://neal.fun/_nuxt/static/1705855483/design-the-next-iphone/state.js" as="script" />
+  <link rel="preload" href="https://neal.fun/_nuxt/static/1705855483/design-the-next-iphone/payload.js" as="script" />
+  <link rel="preload" href="https://neal.fun/_nuxt/static/1705855483/manifest.js" as="script" />
+  <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@<version>/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@<version>/examples/jsm/"
+        }
+      }
+    </script>
+</head>
+
+<body class="design-the-next-iphone-body"
+  data-n-head="%7B%22class%22:%7B%22ssr%22:%22design-the-next-iphone-body%22%7D%7D">
+  <div data-server-rendered="true" id="__nuxt">
+    <div id="__layout">
+      <div>
+        <div class="container" data-v-07d7360d>
+          <div class="fade-bottom" data-v-07d7360d></div>
+          <canvas id="renderer" data-v-07d7360d></canvas>
+          <img src="https://neal.fun/design-the-next-iphone/delete.svg" class="exit-present-button" data-v-07d7360d />
+          <img class="recording-placeholder" style="display: none" data-v-07d7360d />
+          <button class="present-button" data-v-07d7360d>
+            <img src="https://neal.fun/design-the-next-iphone/play.svg" class="present-button-img"
+              data-v-07d7360d />Present
+          </button>
+          <div class="recording-loading" data-v-07d7360d>
+            Generating video
+          </div>
+          <div class="instruction" data-v-07d7360d>
+            Drag & drop items onto your iPhone
+          </div>
+          <div class="title" data-v-07d7360d>
+            Design the Next iPhone
+          </div>
+          <a href="/" class="nuxt-link-active" data-v-07d7360d><img src="https://neal.fun/general/logo.svg"
+              class="site-title" data-v-07d7360d /></a>
+          <div class="present-overlay" data-v-07d7360d>
+            <div class="present-top" data-v-07d7360d>
+              <input spellcheck="false" maxlength="25" value="The all new iPhone" class="present-title"
+                data-v-07d7360d />
+              <div class="present-price" data-v-07d7360d>
+                Starting at $400
+              </div>
+            </div>
+          </div>
+          <img src="https://neal.fun/design-the-next-iphone/tim-cook.png" class="tim-cook" data-v-0ef4df3c
+            data-v-07d7360d />
+          <div data-v-e84edd88 data-v-07d7360d>
+            <div class="items" data-v-e84edd88>
+              <div class="soft-edge soft-edge-left" data-v-e84edd88></div>
+              <div class="soft-edge soft-edge-right" data-v-e84edd88></div>
+              <div class="top-bar top-bar-hide" data-v-e84edd88>
+                <div data-v-e84edd88>
+                  <div class="top-bar-option" data-v-e84edd88>
+                    Items
+                  </div>
+                </div>
+                <div class="top-bar-right" style="display: none" data-v-e84edd88>
+                  <div class="top-bar-option top-bar-option-customize" style="display: none" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/wallpaper.svg"
+                      class="top-bar-option-img delete-icon" data-v-e84edd88 />
+                    Wallpaper
+                  </div>
+                  <div class="top-bar-option top-bar-option-customize" style="display: none" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/pinwheel.svg"
+                      class="top-bar-option-img color-icon" data-v-e84edd88 />
+                    Color
+                  </div>
+                  <div class="top-bar-option top-bar-option-customize" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/delete.svg" class="top-bar-option-img delete-icon"
+                      data-v-e84edd88 />
+                    Delete
+                  </div>
+                </div>
+              </div>
+              <div class="items-inner items-inner-dragging" data-v-e84edd88>
+                <div class="item item-grab" data-v-e84edd88>
+                  <div class="item-box" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/thumbnails/pro-camera.png" class="item-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Pro Camera
+                  </div>
+                </div>
+                <div class="item item-grab" data-v-e84edd88>
+                  <div class="item-box" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/thumbnails/dual-camera.png" class="item-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Dual Camera
+                  </div>
+                </div>
+                <div class="item item-grab" data-v-e84edd88>
+                  <div class="item-box" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/thumbnails/volume-button.png" class="item-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Volume Button
+                  </div>
+                </div>
+                <div class="item item-grab" data-v-e84edd88>
+                  <div class="item-box" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/thumbnails/lightning-port.png" class="item-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Lightning Port
+                  </div>
+                </div>
+                <div class="item item-grab" data-v-e84edd88>
+                  <div class="item-box" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/thumbnails/notch.png" class="item-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Notch
+                  </div>
+                </div>
+                <div class="item item-grab" data-v-e84edd88>
+                  <div class="item-box" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/thumbnails/apple-logo.png" class="item-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Apple Logo
+                  </div>
+                </div>
+                <div class="item item-grab" data-v-e84edd88>
+                  <div class="item-box" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/thumbnails/android-logo.png" class="item-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Android Logo
+                  </div>
+                </div>
+                <div class="item item-grab" data-v-e84edd88>
+                  <div class="item-box" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/thumbnails/home-button.png" class="item-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Home Button
+                  </div>
+                </div>
+                <div class="item item-grab" data-v-e84edd88>
+                  <div class="item-box" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/thumbnails/power-button.png" class="item-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Power Button
+                  </div>
+                </div>
+                <div class="item item-grab" data-v-e84edd88>
+                  <div class="item-box" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/thumbnails/silencer.png" class="item-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Silencer
+                  </div>
+                </div>
+                <div class="item item-grab" data-v-e84edd88>
+                  <div class="item-box" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/thumbnails/front-camera.png" class="item-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Front Camera
+                  </div>
+                </div>
+                <div class="item item-grab" data-v-e84edd88>
+                  <div class="item-box" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/thumbnails/pro-notch.png" class="item-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Pro Notch
+                  </div>
+                </div>
+                <div class="item item-grab" data-v-e84edd88>
+                  <div class="item-box" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/thumbnails/single-camera.png" class="item-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Single Camera
+                  </div>
+                </div>
+                <div class="item item-grab" data-v-e84edd88>
+                  <div class="item-box" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/thumbnails/click-wheel.png" class="item-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Click wheel
+                  </div>
+                </div>
+                <div class="item item-grab" data-v-e84edd88>
+                  <div class="item-box" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/thumbnails/headphone-jack.png" class="item-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Headphone Jack
+                  </div>
+                </div>
+                <div class="item item-grab" data-v-e84edd88>
+                  <div class="item-box" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/thumbnails/antenna.png" class="item-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Antenna
+                  </div>
+                </div>
+                <div class="item item-grab" data-v-e84edd88>
+                  <div class="item-box" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/thumbnails/pro-feet.png" class="item-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Pro Feet
+                  </div>
+                </div>
+                <div class="item item-grab" data-v-e84edd88>
+                  <div class="item-box" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/thumbnails/googly-eyes.png" class="item-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Googly Eyes
+                  </div>
+                </div>
+                <div class="item item-grab" data-v-e84edd88>
+                  <div class="item-box" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/thumbnails/pro-stand.png" class="item-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Pro Stand
+                  </div>
+                </div>
+                <div class="item item-grab" data-v-e84edd88>
+                  <div class="item-box" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/thumbnails/hdmi.png" class="item-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    HDMI
+                  </div>
+                </div>
+                <div class="item item-grab" data-v-e84edd88>
+                  <div class="item-box" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/thumbnails/digital-crown.png" class="item-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Digital Crown
+                  </div>
+                </div>
+                <div class="item item-grab" data-v-e84edd88>
+                  <div class="item-box" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/thumbnails/pear-logo.png" class="item-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Pear Logo
+                  </div>
+                </div>
+                <div class="item item-grab" data-v-e84edd88>
+                  <div class="item-box" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/thumbnails/pro-handle.png" class="item-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Pro Handle
+                  </div>
+                </div>
+                <div class="item item-grab" data-v-e84edd88>
+                  <div class="item-box" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/thumbnails/joystick.png" class="item-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Joystick
+                  </div>
+                </div>
+                <div class="item item-grab" data-v-e84edd88>
+                  <div class="item-box" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/thumbnails/dpad.png" class="item-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Dpad
+                  </div>
+                </div>
+                <div class="item item-grab" data-v-e84edd88>
+                  <div class="item-box" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/thumbnails/pro-wheel.png" class="item-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Pro Wheel
+                  </div>
+                </div>
+                <div class="item item-grab" data-v-e84edd88>
+                  <div class="item-box" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/thumbnails/rotary-dial.png" class="item-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Rotary Dial
+                  </div>
+                </div>
+                <div class="item item-grab" data-v-e84edd88>
+                  <div class="item-box" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/thumbnails/cup-holder.png" class="item-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Cup Holder
+                  </div>
+                </div>
+                <div class="item item-grab" data-v-e84edd88>
+                  <div class="item-box" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/thumbnails/pro-max-camera.png" class="item-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Pro Max Camera
+                  </div>
+                </div>
+                <div class="item item-grab" data-v-e84edd88>
+                  <div class="item-box" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/thumbnails/steering-wheel.png" class="item-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Steering Wheel
+                  </div>
+                </div>
+                <div class="item item-grab" data-v-e84edd88>
+                  <div class="item-box" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/thumbnails/copter-blade.png" class="item-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Copter Blade
+                  </div>
+                </div>
+              </div>
+              <div class="items-inner" style="display: none" data-v-e84edd88>
+                <div class="item" data-v-e84edd88>
+                  <div class="item-color-wrapper" data-v-e84edd88>
+                    <div class="item-box item-color" data-v-e84edd88>
+                      <div class="item-color-inner" style="background: #fff" data-v-e84edd88></div>
+                    </div>
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Universe Gray
+                  </div>
+                </div>
+                <div class="item" data-v-e84edd88>
+                  <div class="item-color-wrapper" data-v-e84edd88>
+                    <div class="item-box item-color" data-v-e84edd88>
+                      <div class="item-color-inner" style="background: #7a776e" data-v-e84edd88></div>
+                    </div>
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Lead
+                  </div>
+                </div>
+                <div class="item" data-v-e84edd88>
+                  <div class="item-color-wrapper" data-v-e84edd88>
+                    <div class="item-box item-color" data-v-e84edd88>
+                      <div class="item-color-inner" style="background: #94bade" data-v-e84edd88></div>
+                    </div>
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Offshore Blue
+                  </div>
+                </div>
+                <div class="item" data-v-e84edd88>
+                  <div class="item-color-wrapper" data-v-e84edd88>
+                    <div class="item-box item-color" data-v-e84edd88>
+                      <div class="item-color-inner" style="background: #fbd2a8" data-v-e84edd88></div>
+                    </div>
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Gold
+                  </div>
+                </div>
+                <div class="item" data-v-e84edd88>
+                  <div class="item-color-wrapper" data-v-e84edd88>
+                    <div class="item-box item-color" data-v-e84edd88>
+                      <div class="item-color-inner" style="background: #5b654e" data-v-e84edd88></div>
+                    </div>
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Green
+                  </div>
+                </div>
+                <div class="item" data-v-e84edd88>
+                  <div class="item-color-wrapper" data-v-e84edd88>
+                    <div class="item-box item-color" data-v-e84edd88>
+                      <div class="item-color-inner" style="background: #c41728" data-v-e84edd88></div>
+                    </div>
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Red
+                  </div>
+                </div>
+                <div class="item" data-v-e84edd88>
+                  <div class="item-color-wrapper" data-v-e84edd88>
+                    <div class="item-box item-color" data-v-e84edd88>
+                      <div class="item-color-inner" style="background: #161d25" data-v-e84edd88></div>
+                    </div>
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Midnight
+                  </div>
+                </div>
+                <div class="item" data-v-e84edd88>
+                  <div class="item-color-wrapper" data-v-e84edd88>
+                    <div class="item-box item-color" data-v-e84edd88>
+                      <div class="item-color-inner" style="background: #aba0e1" data-v-e84edd88></div>
+                    </div>
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Purple
+                  </div>
+                </div>
+                <div class="item" data-v-e84edd88>
+                  <div class="item-color-wrapper" data-v-e84edd88>
+                    <div class="item-box item-color" data-v-e84edd88>
+                      <div class="item-color-inner" style="background: #ffc0b3" data-v-e84edd88></div>
+                    </div>
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Pink
+                  </div>
+                </div>
+                <div class="item" data-v-e84edd88>
+                  <div class="item-color-wrapper" data-v-e84edd88>
+                    <div class="item-box item-color" data-v-e84edd88>
+                      <div class="item-color-inner" style="background: #ff9552" data-v-e84edd88></div>
+                    </div>
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Orange
+                  </div>
+                </div>
+                <div class="item" data-v-e84edd88>
+                  <div class="item-color-wrapper" data-v-e84edd88>
+                    <div class="item-box item-color" data-v-e84edd88>
+                      <div class="item-color-inner" style="background: #6e352b" data-v-e84edd88></div>
+                    </div>
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Rust
+                  </div>
+                </div>
+                <div class="item" data-v-e84edd88>
+                  <div class="item-color-wrapper" data-v-e84edd88>
+                    <div class="item-box item-color" data-v-e84edd88>
+                      <div class="item-color-inner" style="background: #ffc800" data-v-e84edd88></div>
+                    </div>
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Tacky Yellow
+                  </div>
+                </div>
+                <div class="item" data-v-e84edd88>
+                  <div class="item-color-wrapper" data-v-e84edd88>
+                    <div class="item-box item-color" data-v-e84edd88>
+                      <div class="item-color-inner" style="background: #210cbf" data-v-e84edd88></div>
+                    </div>
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Blurple
+                  </div>
+                </div>
+                <div class="item" data-v-e84edd88>
+                  <div class="item-color-wrapper" data-v-e84edd88>
+                    <div class="item-box item-color" data-v-e84edd88>
+                      <div class="item-color-inner" style="background: #0cbfb9" data-v-e84edd88></div>
+                    </div>
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Cyan
+                  </div>
+                </div>
+              </div>
+              <div class="items-inner" style="display: none" data-v-e84edd88>
+                <label for="upload" class="item" data-v-e84edd88><input accept="image/png, image/jpeg" id="upload"
+                    type="file" class="upload" data-v-e84edd88 />
+                  <div class="item-box item-wallpaper" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/wallpapers/upload.png" class="item-wallpaper-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Upload
+                  </div>
+                </label>
+                <div class="item" data-v-e84edd88>
+                  <div class="item-box item-wallpaper" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/wallpapers/leaves.png" class="item-wallpaper-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Leaves
+                  </div>
+                </div>
+                <div class="item" data-v-e84edd88>
+                  <div class="item-box item-wallpaper" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/wallpapers/splatter.png"
+                      class="item-wallpaper-img" data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Splatter
+                  </div>
+                </div>
+                <div class="item" data-v-e84edd88>
+                  <div class="item-box item-wallpaper" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/wallpapers/gradient.png"
+                      class="item-wallpaper-img" data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Gradient
+                  </div>
+                </div>
+                <div class="item" data-v-e84edd88>
+                  <div class="item-box item-wallpaper" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/wallpapers/mountain.png"
+                      class="item-wallpaper-img" data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Mountain
+                  </div>
+                </div>
+                <div class="item" data-v-e84edd88>
+                  <div class="item-box item-wallpaper" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/wallpapers/dog.png" class="item-wallpaper-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Dog
+                  </div>
+                </div>
+                <div class="item" data-v-e84edd88>
+                  <div class="item-box item-wallpaper" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/wallpapers/hot-air-balloons.png"
+                      class="item-wallpaper-img" data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Hot Air Balloons
+                  </div>
+                </div>
+                <div class="item" data-v-e84edd88>
+                  <div class="item-box item-wallpaper" data-v-e84edd88>
+                    <img src="https://neal.fun/design-the-next-iphone/wallpapers/bliss.png" class="item-wallpaper-img"
+                      data-v-e84edd88 />
+                  </div>
+                  <div class="item-name" data-v-e84edd88>
+                    Bliss
+                  </div>
+                </div>
+              </div>
+              <img src="https://neal.fun/design-the-next-iphone/arrow.svg" class="control left-control control-disabled"
+                data-v-e84edd88 />
+              <img src="https://neal.fun/design-the-next-iphone/arrow.svg" class="control right-control"
+                data-v-e84edd88 />
+            </div>
+          </div>
+          <img src="https://neal.fun/design-the-next-iphone/thumbnails/apple-logo.png" class="ghost-img"
+            data-v-07d7360d />
+        </div>
+      </div>
+    </div>
+  </div>
+  <script defer src="./state.js"></script>
+  <script src="./88b447a.js" defer></script>
+  <script src="./80bc178.js" defer></script>
+  <script src="./9a35012.js" defer></script>
+  <script src="./0f531ad.js" defer></script>
+  <script src="./a03b5c5.js" defer></script>
+  <script src="./fd5ddfa.js" defer></script>
+  <script src="./10f3e93.js" defer></script>
+  <script src="./88b447a.js" defer></script>
+  <script src="./24fe730.js" defer></script>
+</body>
+
+</html>

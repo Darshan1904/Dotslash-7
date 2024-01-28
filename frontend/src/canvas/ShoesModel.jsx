@@ -13,6 +13,7 @@ const ShoesModel = ({ position }) => {
   const snap = useSnapshot(state);
 
   const logoTexture = useTexture(snap.logoDecal);
+  const fullTexture = useTexture(snap.fullDecal);
 
   const { nodes, materials } = useGLTF('/shoe-draco.glb')
 
@@ -63,13 +64,32 @@ const ShoesModel = ({ position }) => {
         e.stopPropagation()
         document.getElementById('Shoe.' + e.object.material.name).focus()
       }}
-      scale={1.5}
+      scale={.4}//1.5
       rotation={[0, 0, 0]}
 
     >
       <mesh geometry={nodes.shoe.geometry} material={materials.laces} />
       <mesh geometry={nodes.shoe_1.geometry} material={materials.mesh} >
+        {snap.isFullTexture && (
+          <Decal
+            position={[0, 0, 0]}
+            rotation={[0, 0, 0]}
+            scale={1}
+            map={fullTexture}
+          />
+        )}
 
+        {snap.isLogoTexture && (
+          <Decal
+            position={[0.01 + snap.logoX, 0.01 + snap.logoY, 0.15]}
+            rotation={[0, 0, 0]}
+            scale={snap.logoSize}
+            map={logoTexture}
+            anisotropy={16}
+            depthTest={false}
+            depthWrite={true}
+          />
+        )}
       </mesh>
       <mesh geometry={nodes.shoe_2.geometry} material={materials.caps} >
 

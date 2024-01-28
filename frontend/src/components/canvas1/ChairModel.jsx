@@ -12,7 +12,7 @@ const ChairModel = () => {
   const snap = useSnapshot(state)
 
   const logoTexture = useTexture(snap.logoDecal)
-
+  const fullTexture = useTexture(snap.fullDecal)
   const { nodes, materials } = useGLTF('/chair.glb')
 
   useEffect(() => {
@@ -37,7 +37,7 @@ const ChairModel = () => {
 
   const materialsObject = {
     // 'SheenChair_fabric': 'fabric Mystere Mango Velvet',
-    'SheenChair_label': 'label',
+
     'SheenChair_metal': 'metal',
     'SheenChair_wood': 'wood Brown',
 
@@ -55,7 +55,7 @@ const ChairModel = () => {
       //   e.stopPropagation()
       //   document.getElementById('Chair.' + e.object.material.name).focus()
       // }}
-      scale={2}
+      scale={.75}
 
     >
       <mesh
@@ -67,6 +67,12 @@ const ChairModel = () => {
           rotation={[0, 0, 0]}
           scale={1}
           map={logoTexture}
+        />}
+        {snap.isFullTexture && <Decal
+          position={[0, 0, 0]}
+          rotation={[0, 0, 0]}
+          scale={1}
+          map={fullTexture}
         />}
 
       </mesh>
