@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@react-three/drei": "^9.96.5",
+    "axios": "^1.6.7",
     "leva": "^0.9.35",
     "three": "^0.160.1"
   }
