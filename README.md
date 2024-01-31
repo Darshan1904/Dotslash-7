@@ -1,4 +1,4 @@
-## 🚀 DotSlash 8.0 Hackathon Win! 🌟
+## 🚀 DotSlash 7.0 Hackathon Win! 🌟
 Exciting News! The Dev Trio behind Custom Craft secured the third place at the DotSlash 8.0 Hackathon! Our dedication and effort in creating this innovative platform were recognized, and we are thrilled to share this success with the community. 
 
 ## Project Name
