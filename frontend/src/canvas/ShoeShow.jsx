@@ -27,7 +27,7 @@ const ShoeShowModel = ({ position }) => {
       }
       onPointerOut={() => setHovered(false)}
       scale={.4}
-      position={[0, 1, 0]}
+      position={[0.4, 1, 0]}
       rotation={[-6, -40.2, -0.5]} >
       <mesh geometry={nodes.shoe.geometry} material={materials.laces} />
       <mesh geometry={nodes.shoe_1.geometry} material={materials.mesh}>

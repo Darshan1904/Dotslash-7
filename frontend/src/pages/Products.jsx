@@ -27,12 +27,12 @@ const Products = ({ title }) => {
   return (
     <section className="text-gray-600 body-font" id='products'>
       <div className="container px-5 pt-24 -mt-10 mx-auto">
-        <h1 className='text-4xl font-bold mb-6 text-center underline underline-offset-4'>{title}</h1>
+        <h1 className='text-4xl font-bold mb-6 text-center text-[#5098f5]'>{title}</h1>
         {Object.keys(groupedProducts).map((category, index) => (
           <div key={index} className="flex flex-wrap -m-4">
             {groupedProducts[category].map((product, i) => (
               <div key={i} className="lg:w-1/4 md:w-1/2 p-4 w-full">
-                <Link to={`/product/${i + 1}`} className="block relative h-48 rounded overflow-hidden">
+                <Link to={`/product/${i + index*4}`} className="block relative h-48 rounded overflow-hidden">
                   <img alt="ecommerce" className="object-cover object-center w-full h-full block" src={product.imageUrl} />
                 </Link>
                 <div className="mt-4">

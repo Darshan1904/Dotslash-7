@@ -5,6 +5,7 @@ import {
     logoShirt,
     stylishShirt,
     download,
+    view,
 } from "../assets";
 
 export const EditorTabs = [
@@ -35,6 +36,10 @@ export const FilterTabs = [
         name: "stylishShirt",
         icon: stylishShirt,
     },
+    {
+        name:"showsimilar",
+        icon:  view
+    }
 ];
 
 export const DecalTypes = {

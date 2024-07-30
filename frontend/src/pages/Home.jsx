@@ -16,7 +16,7 @@ const Home = () => {
       <motion.section className='home' {...slideAnimation('left')}>
         <motion.header {...slideAnimation('down')}>
           {/* <img src='./logo512.png' alt='logo' className='w-8 h-8 object-contain' /> */}
-          <h2 className='font-bold text-2xl text-[#997930]'>StyleCart</h2>
+          <h2 className='font-bold text-2xl text-[#5098f5]'>StyleCart</h2>
         </motion.header>
         <motion.div className='home-content' {...headContainerAnimation}>
           <motion.div {...headTextAnimation}>
@@ -26,7 +26,7 @@ const Home = () => {
 
             <p className="max-w-xl font-normal text-gray-600 text-base">
 
-              Explore our collection of ready-made products and use our 3D customization tool to personalize every detail. Whether it's apparel, accessories, or home decor, make your mark on fashion and design. Start customizing and let your imagination run wild.
+              Customize ready-made products with our 3D tool. Personalize fashion, accessories, or home decor. Start now!
               <br />
 
 
@@ -36,7 +36,7 @@ const Home = () => {
 
             <a className=" flex-1 rounded-md w-fit px-4 py-2.5 font-bold text-sm" style={{
               backgroundColor
-                : snap.color
+                : "#5098f5"
             }} href="#products">
               Explore Now
             </a>

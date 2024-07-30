@@ -9,16 +9,20 @@ import CameraRig from './CameraRig';
 import Backdrop from '../../canvas/Backdrop';
 import Shirt from '../../canvas/SimpleModel';
 import ShoesModel from '../../canvas/ShoesModel';
+import CaseModel from './CaseModel';
 
-const CanvasChairModel = () => {
+const CanvasCaseModel = () => {
 
 
   return (
     <Canvas shadows camera={{ position: [0, -2, 2] }}>
       <Environment preset="forest" />
-      <ChairModel />
+      {/* <CameraRig> */}
+      {/* <ChairModel /> */}
+      <CaseModel />
       <ContactShadows position={[0, -0.8, 0]} color="#ffffff" />
       <OrbitControls />
+      {/* </CameraRig> */}
     </Canvas>
   )
 }
@@ -58,4 +62,4 @@ const CanvasModel2 = () => {
   )
 }
 
-export { CanvasChairModel, CanvasShoesModel, CanvasModel2 }
+export { CanvasCaseModel, CanvasShoesModel, CanvasModel2 }

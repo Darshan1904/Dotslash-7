@@ -18,9 +18,9 @@ const StripeWrapper = () => {
     const [open, setOpen] = useState(false);
     return (
         <div>
-            <button className='btn' onClick={() => setOpen(true)}>
+            <Button variant="contained" color="success" onClick={() => setOpen(true)}>
                 Proceed to Pay
-            </button>
+            </Button>
             <Elements stripe={stripePromise} appearance={appearance}>
                 <Dialog open={open} onClose={() => setOpen(false)}>
                     <DialogContent sx={{width: 500}}>
