@@ -14,6 +14,7 @@ from PIL import Image
 from io import BytesIO
 import stripe
 from dotenv import load_dotenv
+from flask_bcrypt import Bcrypt
 
 load_dotenv()
  
@@ -25,12 +26,13 @@ app = Flask(__name__)
 db=SQLAlchemy()
 app.config["SQLALCHEMY_DATABASE_URI"]="postgresql://postgres.agkdfsikvwnuaqyiwbpi:Custom#Craft1@aws-0-ap-south-1.pooler.supabase.com:6543/postgres"
 db.init_app(app)
+bcrypt = Bcrypt(app)
 
 # database model definition and creating tables
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String, unique=True, nullable=False)
-    email = db.Column(db.String)
+    password = db.Column(db.String)
+    email = db.Column(db.String, unique=True, nullable=False)
     role = db.Column(db.String)
 with app.app_context():
     db.create_all()
@@ -127,6 +129,53 @@ def create_payment_intent():
     except Exception as e:
         print(e)
         return jsonify({'error': str(e)}), 500
+
+@app.route('/signup', methods=["POST"])
+def signup():
+    data = request.get_json()
+    password = data.get('password')
+    email = data.get('email')
+    role = data.get('role', 'user')  # Default role is 'user' if not provided
+
+    if not password:
+        return jsonify({"error": "Password is required"}), 400
+
+    existing_user = User.query.filter_by(email=email).first()
+    if existing_user:
+        return jsonify({"error": "Username already exists"}), 400
+    hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
+    new_user = User(password=hashed_password, email=email, role=role)
+
+    try:
+        db.session.add(new_user)
+        db.session.commit()
+        return jsonify({"message": "User created successfully", "user": {
+            "id": new_user.id,
+            "email": new_user.email,
+            "role": new_user.role
+        }}), 201
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error": str(e)}), 500
+    
+@app.route('/login', methods=['POST'])
+def login():
+    data = request.get_json()
+    email = data.get('email')
+    password = data.get('password')
+
+    if not email or not password:
+        return jsonify({"error": "Username and password are required"}), 400
+
+    user = User.query.filter_by(email=email).first()
+    if user and bcrypt.check_password_hash(user.password, password):
+        return jsonify({"message": "Login successful", "user": {
+            "id": user.id,
+            "email": user.email,
+            "role": user.role
+        }}), 200
+    else:
+        return jsonify({"error": "Invalid username or password"}), 401
     
 # @app.route('/products')
 # def getAllProducts():
