@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_sqlalchemy import SQLAlchemy
 import os
 import numpy as np
 import pickle
@@ -19,6 +20,21 @@ load_dotenv()
 stripe.api_key = os.environ.get("stripeSecretKey")
 
 app = Flask(__name__)
+
+# connecting to database
+db=SQLAlchemy()
+app.config["SQLALCHEMY_DATABASE_URI"]="postgresql://postgres.agkdfsikvwnuaqyiwbpi:Custom#Craft1@aws-0-ap-south-1.pooler.supabase.com:6543/postgres"
+db.init_app(app)
+
+# database model definition and creating tables
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String, unique=True, nullable=False)
+    email = db.Column(db.String)
+    role = db.Column(db.String)
+with app.app_context():
+    db.create_all()
+
 
 feature_list = np.array(pickle.load(open('embeddings.pkl', 'rb')))
 filenames = pickle.load(open('filenames.pkl', 'rb'))
@@ -111,6 +127,12 @@ def create_payment_intent():
     except Exception as e:
         print(e)
         return jsonify({'error': str(e)}), 500
+    
+# @app.route('/products')
+# def getAllProducts():
+
+# @app.route('/addProduct', methods=['POST'])
+# def addProduct():
 
 if __name__ == '__main__':
     app.run(debug=True)
