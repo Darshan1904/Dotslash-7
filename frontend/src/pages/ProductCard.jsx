@@ -7,19 +7,20 @@ const ProductCard = () => {
     id = parseInt(id);
 
     const products = [
-        { category: 'shoes', name: 'The Catalyzer', price: '$16.00', imageUrl: 'https://source.unsplash.com/420x260/?shoes' },
-        { category: 'shoes', name: 'Shooting Stars', price: '$21.15', imageUrl: 'https://source.unsplash.com/421x261/?shoes' },
-        { category: 'shoes', name: 'Neptune', price: '$12.00', imageUrl: 'https://source.unsplash.com/422x262/?shoes' },
-        { category: 'shoes', name: 'The 400 Blows', price: '$18.40', imageUrl: 'https://source.unsplash.com/423x263/?shoes' },
-        { category: 'tshirt', name: 'The Catalyzer', price: '$16.00', imageUrl: 'https://source.unsplash.com/424x264/?t-shirt' },
-        { category: 'tshirt', name: 'Shooting Stars', price: '$21.15', imageUrl: 'https://source.unsplash.com/425x265/?t-shirt' },
-        { category: 'tshirt', name: 'Neptune', price: '$12.00', imageUrl: 'https://source.unsplash.com/427x267/?t-shirt' },
-        { category: 'tshirt', name: 'The 400 Blows', price: '$18.40', imageUrl: 'https://source.unsplash.com/428x268/?t-shirt' },
-        { category: 'chair', name: 'The Catalyzer', price: '$16.00', imageUrl: 'https://source.unsplash.com/429x269/?chair' },
-        { category: 'chair', name: 'Shooting Stars', price: '$21.15', imageUrl: 'https://source.unsplash.com/430x270/?chair' },
-        { category: 'chair', name: 'Neptune', price: '$12.00', imageUrl: 'https://source.unsplash.com/431x271/?chair' },
-        { category: 'chair', name: 'The 400 Blows', price: '$18.40', imageUrl: 'https://source.unsplash.com/432x272/?chair' },
-      ];
+        { category: 'shoes', name: 'Speedster Running Shoes', price: '$59.99', imageUrl: 'https://images.unsplash.com/photo-1512374382149-233c42b6a83b?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+        { category: 'shoes', name: 'Galaxy Runner Sneakers', price: '$49.99', imageUrl: 'https://images.unsplash.com/photo-1654907118243-a0a62cefbf0a?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+        { category: 'shoes', name: 'Oceanic Trail Boots', price: '$69.99', imageUrl: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDI5fHxzaG9lc3xlbnwwfHx8fDE2ODk1OTM2NzU&ixlib=rb-1.2.1&q=80&w=400' },
+        { category: 'shoes', name: 'Urban Explorer Sneakers', price: '$55.99', imageUrl: 'https://images.unsplash.com/photo-1509418969973-c560ee8f02a0?q=80&w=1902&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+        { category: 'tshirt', name: 'Classic Cotton Tee', price: '$19.99', imageUrl: 'https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+        { category: 'tshirt', name: 'Vintage Logo Tee', price: '$24.99', imageUrl: 'https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+        { category: 'tshirt', name: 'Neptune Graphic Tee', price: '$22.99', imageUrl: 'https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+        { category: 'tshirt', name: '400 Blows Graphic Tee', price: '$29.99', imageUrl: 'https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+        { category: 'chair', name: 'Ergonomic Office Chair', price: '$129.99', imageUrl: 'https://images.unsplash.com/photo-1519947486511-46149fa0a254?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2hhaXJ8ZW58MHx8MHx8fDA%3D' },
+        { category: 'chair', name: 'Sleek Modern Chair', price: '$99.99', imageUrl: 'https://images.unsplash.com/photo-1612372606404-0ab33e7187ee?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2hhaXJ8ZW58MHx8MHx8fDA%3D' },
+        { category: 'chair', name: 'Contemporary Lounge Chair', price: '$149.99', imageUrl: 'https://images.unsplash.com/photo-1467043153537-a4fba2cd39ef?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNoYWlyfGVufDB8fDB8fHww' },
+        { category: 'chair', name: 'Vintage Wood Chair', price: '$79.99', imageUrl: 'https://images.unsplash.com/photo-1486946255434-2466348c2166?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGNoYWlyfGVufDB8fDB8fHww' }
+    ];
+
     return (
         <section class="overflow-hidden bg-white py-11 font-poppins dark:bg-gray-800">
             <div class="max-w-6xl px-4 py-4 mx-auto lg:py-8 md:px-6">

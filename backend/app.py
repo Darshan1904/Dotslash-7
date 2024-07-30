@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 import os
 import numpy as np
 import pickle
@@ -21,6 +22,7 @@ load_dotenv()
 stripe.api_key = os.environ.get("stripeSecretKey")
 
 app = Flask(__name__)
+CORS(app)
 
 # connecting to database
 db=SQLAlchemy()
