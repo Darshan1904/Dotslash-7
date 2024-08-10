@@ -24,7 +24,7 @@ const Home = () => {
       <motion.section className='home' {...slideAnimation('left')}>
         <motion.header {...slideAnimation('down')} className="flex justify-between items-center">
           <h2 className='font-bold text-2xl text-[#5098f5]'>StyleCart</h2>
-          {user ? (
+          {/* {user ? (
             <p className="text-gray-600">Welcome, {user.email}</p>
           ) : (
             <button
@@ -33,7 +33,7 @@ const Home = () => {
             >
               Login
             </button>
-          )}
+          )} */}
         </motion.header>
 
         <motion.div className='home-content' {...headContainerAnimation}>
