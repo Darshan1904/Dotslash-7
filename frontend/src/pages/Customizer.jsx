@@ -70,11 +70,11 @@ const Customizer = () => {
       // })
       const options = {
         method: 'POST',
-        url: 'https://chatgpt-42.p.rapidapi.com/texttoimage',
+        url: 'https://open-ai21.p.rapidapi.com/texttoimage2',
         headers: {
           'content-type': 'application/json',
           'X-RapidAPI-Key': '53288c652dmsh989ed3cf5c17917p1a6525jsn8b57c0700f3c',
-          'X-RapidAPI-Host': 'chatgpt-42.p.rapidapi.com'
+          'X-RapidAPI-Host': 'open-ai21.p.rapidapi.com'
         },
         data: { text: prompt }
       };
