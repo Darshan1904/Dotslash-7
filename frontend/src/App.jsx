@@ -9,6 +9,7 @@ import Footer from './components/Footer/Footer';
 import { useSnapshot } from 'valtio';
 import state from './store';
 import { UserProvider } from './context/UserContext';
+import SimilarProducts from './components/SimilarProducts';
 
 function App() {
     const snap=useSnapshot(state)
@@ -30,23 +31,7 @@ function App() {
                         <CustomizerModel />
                         
                         </>} />
-                        <Route path='/similar' element={<>
-                        <div className='h-screen bg-gray-300'>
-                        <h1 className='text-4xl font-bold mb-6 text-center text-[#5098f5]'>People also Viewed</h1>
-                        <div className='grid grid-cols-4 gap-2'>
-                            {
-                                
-                                snap?.recommendations?.map(el=><div className="lg:w-1/2 md:w-1/2 p-4 w-full">
-                                <div className="block relative h-48 rounded-md overflow-hidden hover:scale-110 transition duration-300">
-                                <img alt="ecommerce" className="object-cover object-center w-full h-full block" src={'data:image/png;base64,'+el.content} />
-                                </div>
-
-                            </div>)
-                            }
-                        </div>
-                        </div>
-                        
-                        </>}/>
+                        <Route path='/similar' element={<SimilarProducts snap={snap} />}/>
                         <Route path="/product/:id" element={<ProductCard />} />
                         <Route path="/:id" element={<ProductCard />} />
 
