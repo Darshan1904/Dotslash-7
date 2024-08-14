@@ -57,17 +57,6 @@ const Customizer = () => {
     try {
       setGeneratingImg(true);
 
-      // const response = await fetch('https://chatgpt-42.p.rapidapi.com/texttoimage', {
-      //   method: 'POST',
-      //   headers: {
-      //     'content-type': 'application/json',
-      //     'X-RapidAPI-Key': '53288c652dmsh989ed3cf5c17917p1a6525jsn8b57c0700f3c',
-      //     'X-RapidAPI-Host': 'chatgpt-42.p.rapidapi.com'
-      //   },
-      //   data: JSON.stringify({
-      //     prompt,
-      //   })
-      // })
       const options = {
         method: 'POST',
         url: process.env.REACT_APP_OPENAI_URL,
