@@ -70,11 +70,11 @@ const Customizer = () => {
       // })
       const options = {
         method: 'POST',
-        url: 'https://open-ai21.p.rapidapi.com/texttoimage2',
+        url: process.env.REACT_APP_OPENAI_URL,
         headers: {
           'content-type': 'application/json',
-          'X-RapidAPI-Key': '53288c652dmsh989ed3cf5c17917p1a6525jsn8b57c0700f3c',
-          'X-RapidAPI-Host': 'open-ai21.p.rapidapi.com'
+          'X-RapidAPI-Key': process.env.REACT_APP_OPENAI_KEY,
+          'X-RapidAPI-Host': process.env.REACT_APP_OPENAI_HOST
         },
         data: { text: prompt }
       };
